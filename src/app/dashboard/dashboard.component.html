@@ -91,18 +91,18 @@
 </div>
 
 <div class="row" style="display: list-item;"
-*ngIf="(first && second && third && fourth && fifth)">
-<div class=col-lg-9></div>
-<div class="col-lg-1">
+*ngIf="tabsEnable">
+<div class=col-lg-8></div>
+<div class="col-lg-2">
   <!-- Example single danger button -->
-<div class="btn-group">
+<div class="btn-group" style="margin-left:79px">
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Download
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item"  id="dropdownMenuButton" download href="./assets/RBI207_Special Fortnightly Return-VI-AB.pdf">PDF</a>
     <a class="dropdown-item" id="dropdownMenuButton"download href="./assets/BOM_Sample_Data.csv">CSV</a>
-    <a class="dropdown-item"  id="dropdownMenuButton" download href="./assets/BOM_Sample_Data.xlsx">XLXS</a>
+    <a class="dropdown-item"  id="dropdownMenuButton" download href="./assets/BOM_Sample_Data.xlsx">XLSX</a>
     <a class="dropdown-item" href="#" (click)="test()">RTF</a>
  
   </div>
