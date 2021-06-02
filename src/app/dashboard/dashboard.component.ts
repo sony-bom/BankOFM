@@ -53,6 +53,7 @@ export class DashboardComponent implements OnInit {
   third: boolean;
   fourth: boolean;
   fifth: boolean;
+  comments: string;
   constructor(
  
     private constants: AppConstants,
@@ -1845,9 +1846,11 @@ this.enableTable11 = true;
   }
   approved() {
     this.showPopup = true;
+    this.showPopup1 = false;
     this.text ="Report “RBI207_Special Fortnightly Return-VI-AB” is Verified and Approved. Final Approval is sent to “Regional Manager”."
   }
   rejected() {
+    this.showPopup = false;
     this.showPopup1 = true;
     this.text ="Report “RBI207_Special Fortnightly Return-VI-AB” has been rejected. Please fill in the Valid Reason for Rejection in the Comments section for further process.";
   }
@@ -1867,6 +1870,17 @@ this.enableTable11 = true;
     this.NRIDepositsEnable = false;
     this.foreignCurrencyExpCreditEnable = false;
     this.tabsEnable = true;
+    this.showPopup1=false;
+  }
+  closeModal1(){
+    this.interestRatedAllLoansEnable = false;
+    this.domSavingsDepositsEnable = false;
+    this.domesticTermDepositsEnable = false;
+    this.NRIDepositsEnable = false;
+    this.foreignCurrencyExpCreditEnable = false;
+    this.tabsEnable = true;
+    this.comments='';
+    this.showPopup1=false;
   }
 
   enableDisableRule(job) {
