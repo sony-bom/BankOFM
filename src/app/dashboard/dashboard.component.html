@@ -103,7 +103,10 @@
     <a class="dropdown-item"  id="dropdownMenuButton" download href="./assets/RBI207_Special Fortnightly Return-VI-AB.pdf">PDF</a>
     <a class="dropdown-item" id="dropdownMenuButton"download href="./assets/BOM_Sample_Data.csv">CSV</a>
     <a class="dropdown-item"  id="dropdownMenuButton" download href="./assets/BOM_Sample_Data.xlsx">XLSX</a>
-    <a class="dropdown-item" href="#" (click)="test()">RTF</a>
+    <a class="dropdown-item"  id="dropdownMenuButton" download href="./assets/RBI207_Special Fortnightly Return-VI-AB.docx">DOC</a>
+    <a class="dropdown-item"  id="dropdownMenuButton" download href="./assets/RBI207_Special Fortnightly Return-VI-AB.rtf">RTF</a>
+    <!-- <a class="dropdown-item" href="#" (click)="test()">RTF</a>
+    <a class="dropdown-item" href="#" (click)="test()">RTF</a> -->
  
   </div>
 </div>
@@ -530,19 +533,33 @@
       </div>
       <form class="registration-form" #rejectionForm="ngForm">
       <div class="form-group">
-        <label class="form-label">
-          <span class="hdg-text">Comments for rejection</span>
-        </label>
-        <span class="requiredfield">*</span>
-        <input class="form-input" type="text" placeholder="" maxlength="100" [(ngModel)]="comments" minlength="4" name="cmnts"
-          #cmnts="ngModel" autocomplete="off" required>
-      
-        <div *ngIf="cmnts.invalid && (cmnts.dirty || cmnts.touched)" class="error-block">
-          <div style="color:red" *ngIf="cmnts.errors.required">
-          comments is required
+        <div class="row">
+
+          <div class="col-lg-5">
+            <div class="comments" style="margin-left:26px">
+              <label class="form-label">
+                <span class="hdg-text">Comments for rejection</span>
+              </label>
+              <span class="requiredfield">*</span>
+              </div>
           </div>
-      
+          <div class="col-lg-7" style="margin-left: -33px;">
+   
+            <textarea class="form-input" type="text" placeholder="" rows="5" cols="35" maxlength="100" [(ngModel)]="comments" minlength="5" name="cmnts"
+            #cmnts="ngModel" autocomplete="off" required></textarea>
+        
+          <div *ngIf="cmnts.invalid && (cmnts.dirty || cmnts.touched)" class="error-block">
+            <div style="color:red" *ngIf="cmnts.errors.required">
+            comments is required
+            </div>
+        
+          </div>
+          </div>
         </div>
+
+
+
+     
       </div>
       </form>
 
