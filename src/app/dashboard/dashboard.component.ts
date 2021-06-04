@@ -3,6 +3,7 @@ import { AppConstants } from '../app.constants';
 
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './dashboard.service';
+import { Router } from '@angular/router';
 
 
 
@@ -60,7 +61,7 @@ export class DashboardComponent implements OnInit {
   message: any;
   userName: string;
   constructor(
- 
+    private router: Router,
     private constants: AppConstants,
     private dashboardService:DashboardService
    
@@ -1171,8 +1172,12 @@ this.enableTable11 = true;
     }
   }
 
+  logout(){
+    
+    this.router.navigate(['/login']);
+  }
 
+  
 
- 
 
 }

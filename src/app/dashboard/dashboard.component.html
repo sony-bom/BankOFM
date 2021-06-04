@@ -10,11 +10,11 @@
   <!-- Navigation -->
   <div class="row">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="col-lg-2"></div>
-      <div class="col-lg-6">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
         <h1>Welcome To Bank Of Maharastra</h1>
       </div>
-      <div class="col-lg-1">
+      <div class="col-sm-1">
         <div class="items">
           <img
             src="./assets/logo.jpg"
@@ -22,13 +22,19 @@
           />
         </div>
       </div>
+      <div class="col-sm-1">
+       <a (click)="logout()"> <img
+        src="./assets/logout.png"
+        style="height:47px; width:58px; margin-left: 16px; cursor: pointer;"
+      /></a> 
+      </div>
     </nav>
   </div>
 
   <!----Navbar ends here-->
 
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-sm-2">
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
           <img class="img" src="./assets/user.png" />
@@ -86,10 +92,10 @@
       </div>
     </div>
 
-    <div class="col-lg-10" *ngIf="!tabsEnable">
+    <div class="col-sm-10" *ngIf="!tabsEnable">
       <div class="box">
-        <div class="col-lg-10"></div>
-        <div class="col-lg-2">
+        <div class="col-sm-10"></div>
+        <div class="col-sm-2">
           <!-- Example single danger button -->
           <div class="btn-group" style="margin: 37px 0px 0px 0px">
             <button
@@ -137,8 +143,6 @@
                 href="./assets/RBI207_Special Fortnightly Return-VI-AB.rtf"
                 >RTF</a
               >
-              <!-- <a class="dropdown-item" href="#" (click)="test()">RTF</a>
-    <a class="dropdown-item" href="#" (click)="test()">RTF</a> -->
             </div>
           </div>
           <!-- <a download href="assets/RBI207_Special Fortnightly Return-VI-AB.pdf"> <button class="btn btn-secondary"
@@ -147,13 +151,12 @@
     Download
   </button> </a> -->
         </div>
-        <!-- <img src="/assets/back.jpg" style="width: 100%;height:555px;opacity: 0.1;"> -->
       </div>
     </div>
 
     <div class="row" style="display: list-item" *ngIf="tabsEnable">
-      <div class="col-lg-8"></div>
-      <div class="col-lg-2">
+      <div class="col-sm-8"></div>
+      <div class="col-sm-2">
         <div class="btn-group" style="margin-left: 79px">
           <button
             type="button"
@@ -232,7 +235,7 @@
     </div>
 
     <div
-      class="col-lg-10"
+      class="col-sm-10"
       *ngIf="tabsEnable"
       style="margin: 46px 0px 0px 248px"
     >
@@ -294,16 +297,6 @@
         </button>
       </div>
 
-      <!-- <div class="row" *ngIf="interestRatedAllLoansEnable || domSavingsDepositsEnable || domesticTermDepositsEnable || NRIDepositsEnable || foreignCurrencyExpCreditEnable">
-              <div class=col-lg-11></div>
-              <div class="col-1">
-                <a download href="assets/RBI207_Special Fortnightly Return-VI-AB.pdf"> <button class="btn btn-secondary"
-                    style="background: #83aed4;margin-top: 30px;" (click)="download()" type="button"
-                    id="dropdownMenuButton">
-                    Download
-                  </button> </a>
-              </div>
-            </div> -->
       <div *ngIf="interestRatedAllLoansEnable">
         <table
           class="table table-striped"
@@ -346,16 +339,7 @@
             <tr *ngFor="let aData of finalObj.Sheet1; index as i">
               <td
                 class="link"
-                [ngStyle]="{
-                  color:
-                    aData.item === 'I. Type of Credit(1+2+3+4+5)'
-                      ? 'black'
-                      : aData.item != 'I. Type of Credit(1+2+3+4+5)'
-                      ? 'green'
-                      : ''
-                }"
-                style="text-decoration: underline; cursor: pointer"
-              >
+                [ngClass]="{colorGreen: aData.item === 'I. Type of Credit(1+2+3+4+5)', colorRed: aData.item != 'I. Type of Credit(1+2+3+4+5)'}">            
                 <a (click)="getItems(aData)" (click)="popup = true"
                   >{{ aData.item }}
                 </a>
@@ -802,7 +786,7 @@
         <form class="registration-form" #rejectionForm="ngForm">
           <div class="form-group">
             <div class="row">
-              <div class="col-lg-5">
+              <div class="col-sm-5">
                 <div class="comments" style="margin-left: 26px">
                   <label class="form-label">
                     <span class="hdg-text">Comments for rejection</span>
@@ -810,7 +794,7 @@
                   <span class="requiredfield">*</span>
                 </div>
               </div>
-              <div class="col-lg-7" style="margin-left: -33px">
+              <div class="col-sm-7" style="margin-left: -33px">
                 <textarea
                   class="form-input"
                   type="text"
