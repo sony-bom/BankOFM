@@ -1,0 +1,73 @@
+<body >
+  <!-- Navigation -->
+  <div class="row">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="col-lg-2">
+  
+  </div>
+  <div class="col-lg-6">
+    <h1>
+      Welcome To Bank Of Maharastra
+     </h1>
+  </div>
+  <div class="col-lg-1">
+    <div class="items">
+      <img src="./assets/logo.jpg" style="height: 70px;width: 100px;float: left;">
+    </div>
+  </div>
+  </nav>
+
+
+</div>
+
+<div class="wrapper fadeInDown" style="margin-top: 20px;">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Log In </h2>
+    <!-- <h2 class="inactive underlineHover">Sign Up </h2> -->
+
+    <!-- Icon -->
+    <div class="fadeIn first" >
+      <img src="./assets/user.png" id="icon" alt="User Icon"  style="width: 98px;" />
+    </div>
+
+    <form class="registration-form" #loginForm="ngForm">
+      <div class="row">
+      <div class="form-group col-sm-12">
+        <label for="userId">Enter User Name</label>
+        <input type="text" autocomplete="off" placeholder="username" class="form-input"  name="userId" [(ngModel)]="user.userId" #userId="ngModel"
+          required>
+          <div *ngIf="userId.invalid && (userId.dirty || userId.touched)" class="error-block">
+            <div style="color:red" *ngIf="userId.errors.required">
+            User Name is required
+            </div>
+        
+          </div>
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="userId">Enter Password</label>
+        <input type="password" autocomplete="new-password" placeholder="password" class="form-input"  name="pswrd" [(ngModel)]="user.password" #pswrd="ngModel"
+           required>
+           <div *ngIf="pswrd.invalid && (pswrd.dirty || pswrd.touched)" class="error-block">
+            <div style="color:red" *ngIf="pswrd.errors.required">
+            Password is required
+            </div>
+        
+          </div>
+      </div>
+    </div>
+  </form>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="form-group col-sm-6">
+          <input type="button" class="fadeIn fourth"(click)="login()" [disabled]="loginForm.invalid" value="Log In">
+                </div>
+      </div>
+    <!-- Remind Passowrd -->
+    <!-- <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div> -->
+
+  </div>
+</div>
+</body>

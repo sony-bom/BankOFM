@@ -13,6 +13,7 @@ import { DashboardService } from './dashboard.service';
 })
 export class DashboardComponent implements OnInit {
 
+
   toggle = true;
   status = 'Enable';
   finalObj: any = [];
@@ -54,6 +55,10 @@ export class DashboardComponent implements OnInit {
   fourth: boolean;
   fifth: boolean;
   comments: string;
+  finalchildDetails: any=[];
+  cDetails: any[];
+  message: any;
+  userName: string;
   constructor(
  
     private constants: AppConstants,
@@ -64,1219 +69,594 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
+    this.userName= localStorage.getItem('dataSource')
+  
 
     this.finalObj = {
-      "A": [
       
-        {
-          "SNo": "1.",
-          "Item": "1. Cash Credit",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "30104.2",
-          "child": [
-            {
-              "SNo": "1.",
-              "Item": "1. Cash Credit",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "SNo": "1.",
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "25.38"
-            },
-            {
-              "SNo": "1.",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "SNo": "1.",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "SNo": "2.",
-          "Item": "2. Demand Loans",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "12504.92",
-          "child": [
-            {
-              "SNo": "2.",
-              "Item": "2. Demand Loans",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "SNo": "2.",
-             
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "23.5"
-            },
-            {
-              "SNo": "2.",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "SNo": "2.",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "SNo": "3.",
-          "Item": "3. Overdrafts",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "930.76",
-          "child": [
-            {
-              "SNo": "3.",
-              "Item": "3. Overdrafts",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "SNo": "3.",
-             
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "17"
-            },
-            {
-              "SNo": "3.",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "SNo": "3.",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "SNo": "4.",
-          "Item": "4. Inland Bills financed and discounted",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "560.19",
-          "child": [
-            {
-              "SNo": "4.",
-              "Item": "4. Inland Bills financed and discounted",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "SNo": "4.",
-             
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "9"
-            },
-            {
-              "SNo": "4.",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "SNo": "4.",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "SNo": "5.",
-          "Item": "5. Term Loans (5.1+5.2+5.3+5.4+5.5)",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "47002.86",
-          "child": [
-            {
-              "SNo": "5.",
-              "Item": "5. Term Loans (5.1+5.2+5.3+5.4+5.5)",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "SNo": "5.",
-             
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "0"
-            },
-            {
-              "SNo": "5.",
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "SNo": "5.",
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "SNo": "5.1",
-          "Item": "5.1 1 day to 180 days",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "16.72",
-          "child": [
-            {
-              "SNo": "5.1",
-              "Item": "5.1 1 day to 180 days",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "5"
-            },
-            {
-              "SNo": "5.1",
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "18"
-            },
-            {
-              "SNo": "5.1",
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "SNo": "5.1",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "18"
-            }
-          ]
-        },
-        {
-          "SNo": "5.2",
-          "Item": "5.2 181 days to 1 year",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "907.68",
-          "child": [
-            {
-              "SNo": "5.2",
-              "Item": "5.2 181 days to 1 year",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "SNo": "5.2",
-             
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "17.75"
-            },
-            {
-              "SNo": "5.2",
-            
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "8.75"
-            },
-            {
-              "SNo": "5.2",
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "17.75"
-            }
-          ]
-        },
-        {
-          "SNo": "5.3",
-          "Item": "5.3 Above 1 year and up to 3 years",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "981.04",
-          "child": [
-            {
-              "SNo": "5.3",
-              "Item": "5.3 Above 1 year and up to 3 years",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "SNo": "5.3",
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "19"
-            },
-            {
-              "SNo": "5.3",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "SNo": "5.3",
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "19"
-            },
-            {
-              "SNo": "5.4",
-              "Item": "5.4 Above 3 years and up to 5 years",
-              "InterestRange": "AmountOutstanding",
-              "col_num": "2",
-              "value": "6078.27",
-              "child": [
-                {
-                  "SNo": "5.4",
-                  "Item": "5.4 Above 3 years and up to 5 years",
-                  "InterestRange": "Rate of Interest (Range)",
-                  "min_max": "Min",
-                  "col_num": "3",
-                  "value": "0"
-                },
-                {
-                  "SNo": "5.4",
-                 
-                  "InterestRange": "Rate of Interest (Range)",
-                  "min_max": "Max",
-                  "col_num": "4",
-                  "value": "33.75"
-                },
-                {
-                  "SNo": "5.4",
-                 
-                  "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-                  "min_max": "Min",
-                  "col_num": "5",
-                  "value": "0"
-                },
-                {
-                  "SNo": "5.4",
-                 
-                  "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-                  "min_max": "Max",
-                  "col_num": "6",
-                  "value": "33.75"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "SNo": "5.5",
-          "Item": "5.5 Above 5 years",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "39019.15",
-          "child": [
-            {
-              "SNo": "5.5",
-              "Item": "5.5 Above 5 years",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "SNo": "5.5",
-             
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "19"
-            },
-            {
-              "SNo": "5.5",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "SNo": "5.5",
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "19"
-            }
-          ]
-        },
-        {
-          "SNo": "6.",
-          "Item": "6. Gross Bank Credit",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "90670.87"
-        },
-        {
-          "SNo": "7.",
-          "Item": "II Purpose of Credit",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2"
-        },
-        {
-          "SNo": "7.",
-          "Item": "7. Agriculture",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "15055.62",
-          "child": [
-            {
-              "Item": "7. Agriculture",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "24.75"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "24.75"
-            }
-          ]
-        },
-        {
-          "SNo": "8.",
-          "Item": "8. Industry (Large)",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "31475.46",
-          "child": [
-            {
-              "Item": "8. Industry (Large)",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "23.65"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "23.65"
-            }
-          ]
-        },
-        {
-          "SNo": "9",
-          "Item": "9. MSMEs",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "7193.59",
-          "child": [
-            {
-              "Item": "9. MSMEs",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-             
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "23.2"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "23.2"
-            }
-          ]
-        },
-        {
-          "SNo": "10",
-          "Item": "10. Infrastructure",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "8821.41",
-          "child": [
-            {
-              "Item": "10. Infrastructure",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "19.25"
-            },
-            {
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-            
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "19.25"
-            }
-          ]
-        },
-        {
-          "SNo": "11",
-          "Item": "11. Trade",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "5093.05",
-          "child": [
-            {
-              "Item": "11. Trade",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "33.75"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "33.75"
-            }
-          ]
-        },
-        {
-          "SNo": "12",
-          "Item": "12. Professional Services",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "3845.6",
-          "child": [
-            {
-              "Item": "12. Professional Services",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "33.75"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "33.75"
-            }
-          ]
-        },
-        {
-          "SNo": "13",
-          "Item": "13. Personal Loans (13.1+13.2+13.3+13.4+13.5)",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "18767.48",
-          "child": [
-            {
-              "Item": "13. Personal Loans (13.1+13.2+13.3+13.4+13.5)",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "SNo": "13",
-          "Item": "13.1 Credit Card",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "0.03",
-          "child": [
-            {
-              "Item": "13.1 Credit Card",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "0"
-            },
-            {
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-             
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "SNo": "13.2",
-          "Item": "13.2 Education",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "1094.1",
-          "child": [
-            {
-              "Item": "13.2 Education",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "6.25"
-            },
-            {
-             
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "14.75"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "14.75"
-            },
-            {
-              
-              "InterestRange": "AmountOutstanding",
-              "col_num": "2",
-              "value": "1328.79"
-            }
-          ]
-        },
-        {
-          "SNo": "13.3",
-          "Item": "13.3 Vehicle",
-          "InterestRange": "Rate of Interest (Range)",
-          "col_num": "3",
-          "value": "4",
-          "min_max": "Min",
-          "child": [
-            {
-              "Item": "13.3 Vehicle",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "16.75"
-            },
-            {
-              "Item": "13.3 Vehicle",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "Item": "13.3 Vehicle",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "16.75"
-            }
-          ]
-        },
-        {
-          "SNo": "13.4",
-          "Item": "13.4 housing",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "12893.07"
-        },
-        {
-          "Item": "13.4 housing",
-          "InterestRange": "Rate of Interest (Range)",
-          "min_max": "Min",
-          "col_num": "3",
-          "value": "0",
-          "child": [
-            {
-              "Item": "13.4 housing",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "15.75"
-            },
-            {
-              "Item": "13.4 housing",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "Item": "13.4 housing",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "15.75"
-            }
-          ]
-        },
-        {
-          "SNo": "13.5",
-          "Item": "13.5 Other Personal Loans",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "3451.49",
-          "child": [
-            {
-              "Item": "13.5 Other Personal Loans",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "Item": "13.5 Other Personal Loans",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "25.38"
-            },
-            {
-              "Item": "13.5 Other Personal Loans",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "Item": "13.5 Other Personal Loans",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "25.38"
-            }
-          ]
-        },
-        {
-          "SNo": "14",
-          "Item": "14. Rupee Export Credit (14.1+14.2)",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "418.67",
-          "child": [
-            {
-              "Item": "14. Rupee Export Credit (14.1+14.2)",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "Item": "14. Rupee Export Credit (14.1+14.2)",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "0"
-            },
-            {
-              "Item": "14. Rupee Export Credit (14.1+14.2)",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "Item": "14. Rupee Export Credit (14.1+14.2)",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-        {
-          "SNo": "14.1",
-          "Item": "14.1 Pre-shipment Credit (14.1.1+14.1.2+14.1.3)",
-          "InterestRange": "AmountOutstanding",
-          "col_num": "2",
-          "value": "63.43",
-          "child": [
-            {
-              "Item": "14.1 Pre-shipment Credit (14.1.1+14.1.2+14.1.3)",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Min",
-              "col_num": "3",
-              "value": "0"
-            },
-            {
-              "Item": "14.1 Pre-shipment Credit (14.1.1+14.1.2+14.1.3)",
-              "InterestRange": "Rate of Interest (Range)",
-              "min_max": "Max",
-              "col_num": "4",
-              "value": "0"
-            },
-            {
-              "Item": "14.1 Pre-shipment Credit (14.1.1+14.1.2+14.1.3)",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Min",
-              "col_num": "5",
-              "value": "0"
-            },
-            {
-              "Item": "14.1 Pre-shipment Credit (14.1.1+14.1.2+14.1.3)",
-              "InterestRange": "InterestRate range in which 60 percent or more business is contracted",
-              "min_max": "Max",
-              "col_num": "6",
-              "value": "0"
-            }
-          ]
-        },
-       
-       
-         
+        "Sheet1": [
+          {
+            "item": "I. Type of Credit(1+2+3+4+5)",
+            "AmountOutstanding": "91102.93",
+            "roimin": "00.25",
+            "roimax": "34.56",
+            "irrmin": "0.00",
+            "irrmax": "0.00"
+          },
+          {
+            "item": "Cash Credit",
+            "AmountOutstanding": "30104.2",
+            "roimin": "0.00",
+            "roimax": "25.38",
+            "irrmin": "0.00",
+            "irrmax": "0.00",
+            "child": [
+              {
+                "item": "Cash Credit",
+                "AmountOutstanding": "50204.2",
+                "roimin": "0.00",
+                "roimax": "35.28",
+                "irrmin": "0.00",
+                "irrmax": "0.00"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "20103.2",
+                "roimin": "0.00",
+                "roimax": "15.38",
+                "irrmin": "0.00",
+                "irrmax": "0.00"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "31234.2",
+                "roimin": "0.00",
+                "roimax": "65.38",
+                "irrmin": "0.00",
+                "irrmax": "0.00"
+              }
+            ]
+          },
+          {
+            "item": "Demand Loans",
+            "AmountOutstanding": "12504.92",
+            "roimin": "0.00",
+            "roimax": "23.5",
+            "irrmin": "0.00",
+            "irrmax": "0.00",
+            "child": [
+              {
+                "item": "Demand Loans",
+                "AmountOutstanding": "13456.92",
+                "roimin": "0.00",
+                "roimax": "12.5",
+                "irrmin": "0.00",
+                "irrmax": "0.00"
+              }
+            ]
+          },
+          {
+            "item": "Overdrafts",
+            "AmountOutstanding": "930.76",
+            "roimin": "0.00",
+            "roimax": "17",
+            "irrmin": "0.00",
+            "irrmax": "0.00",
+            "child": [
+              {
+                "item": "Overdrafts",
+                "AmountOutstanding": "560.16",
+                "roimin": "0.00",
+                "roimax": "11",
+                "irrmin": "0.00",
+                "irrmax": "0.00"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "830.46",
+                "roimin": "0.00",
+                "roimax": "12",
+                "irrmin": "0.00",
+                "irrmax": "0.00"
+              }
+            ]
+          },
+          {
+            "item": "Inland Bills financed and discounted",
+            "AmountOutstanding": "560.19",
+            "roimin": "0.00",
+            "roimax": "9",
+            "irrmin": "0.00",
+            "irrmax": "0.00",
+            "child": [
+              {
+                "item": "Inland Bills financed and discounted",
+                "AmountOutstanding": "230.19",
+                "roimin": "0.00",
+                "roimax": "4",
+                "irrmin": "0.00",
+                "irrmax": "0.00"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "456.19",
+                "roimin": "0.00",
+                "roimax": "8",
+                "irrmin": "0.00",
+                "irrmax": "0.00"
+              }
+            ]
+          },
+          {
+            "item": "Term Loans (5.1+5.2+5.3+5.4+5.5)",
+            "AmountOutstanding": "47002.86",
+            "roimin": "0.00",
+            "roimax": "0.00",
+            "irrmin": "0.00",
+            "irrmax": "0.00",
+            "child": [
+              {
+                "item": "Term Loans (5.1+5.2+5.3+5.4+5.5)",
+                "AmountOutstanding": "34003.86",
+                "roimin": "0.00",
+                "roimax": "16.00",
+                "irrmin": "7.00",
+                "irrmax": "0.00"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "47002.86",
+                "roimin": "0.00",
+                "roimax": "12.00",
+                "irrmin": "0.00",
+                "irrmax": "6.00"
+              }
+            ]
+          },
+          {
+            "item": "5.1 1 day to 180 days",
+            "AmountOutstanding": "16.72",
+            "roimin": "5",
+            "roimax": "18",
+            "irrmin": "0.00",
+            "irrmax": "18",
+            "child": [
+              {
+                "item": "5.1 1 day to 180 days",
+                "AmountOutstanding": "12.52",
+                "roimin": "6",
+                "roimax": "11",
+                "irrmin": "0.00",
+                "irrmax": "15"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "11.13",
+                "roimin": "7",
+                "roimax": "28",
+                "irrmin": "0.00",
+                "irrmax": "14"
+              }
+            ]
+          },
+          {
+            "item": "5.2 181 days to 1 year",
+            "AmountOutstanding": "907.68",
+            "roimin": "0.00",
+            "roimax": "17.75",
+            "irrmin": "18",
+            "irrmax": "17.75",
+            "child": [
+              {
+                "item": "5.2 181 days to 1 year",
+                "AmountOutstanding": "206.12",
+                "roimin": "0.00",
+                "roimax": "12.76",
+                "irrmin": "14",
+                "irrmax": "16.15"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "256.68",
+                "roimin": "0.00",
+                "roimax": "13.74",
+                "irrmin": "12",
+                "irrmax": "12.65"
+              }
+            ]
+          },
+          {
+            "item": "Gross Bank Credit",
+            "AmountOutstanding": "90670.87",
+            "roimin": "",
+            "roimax": "",
+            "irrmin": "",
+            "irrmax": "",
+            "child": [
+              {
+                "item": "Gross Bank Credit",
+                "AmountOutstanding": "80678.87",
+                "roimin": "22.67",
+                "roimax": "0.00",
+                "irrmin": "12.12",
+                "irrmax": "0.00"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "20937.87",
+                "roimin": "0.00",
+                "roimax": "0.00",
+                "irrmin": "0.00",
+                "irrmax": "13.12"
+              }
+            ]
+          },
+          {
+            "item": "Agriculture",
+            "AmountOutstanding": "15055.62",
+            "roimin": "",
+            "roimax": "24.75",
+            "irrmin": "",
+            "irrmax": "24.75",
+            "child": [
+              {
+                "item": "Agriculture",
+                "AmountOutstanding": "14234.62",
+                "roimin": "",
+                "roimax": "12.75",
+                "irrmin": "",
+                "irrmax": "13.15"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "13123.12",
+                "roimin": "",
+                "roimax": "14.75",
+                "irrmin": "",
+                "irrmax": "34.15"
+              }
+            ]
+          },
+          {
+            "item": "Industry (Large)",
+            "AmountOutstanding": "31475.46",
+            "roimin": "",
+            "roimax": "23.65",
+            "irrmin": "",
+            "irrmax": "23.65",
+            "child": [
+              {
+                "item": "Industry (Large)",
+                "AmountOutstanding": "12345.46",
+                "roimin": "",
+                "roimax": "3.65",
+                "irrmin": "",
+                "irrmax": "23.15"
+              },
+              {
+                "item": "",
+                "AmountOutstanding": "12789.46",
+                "roimin": "",
+                "roimax": "28.25",
+                "irrmin": "",
+                "irrmax": "16.15"
+              }
+            ]
+          }
+        ]
+      
     
-      
-       
-      ]
     };
+    
     this.DOMSavingsObj = {
-      "DomSavingsDeposits": [
-        {
-          "Buckets": "Up to Rs. 1 Lakh",
-          "InterestRange": "AmountOutstanding (Rs. Crore)",
-          "Value": "13186.04",
-          "child": [
-            {
-              "Buckets": "Up to Rs. 1 Lakh",
-              "InterestRange": "InterestRange (%)",
-              "Value": "4"
-            },
-            {
-              "Buckets": "Between Rs. 1 lakh to Rs. 3 Lakhs",
-              "InterestRange": "AmountOutstanding (Rs. Crore)",
-              "Value": "10663.22"
-            }]
-        },
-
-        {
-          "Buckets": "Between Rs. 1 lakh to Rs. 3 Lakhs",
-          "InterestRange": "InterestRange (%)",
-          "min_max": "Min",
-          "Value": "4",
-          "child": [
-            {
-              "Buckets": "Between Rs. 1 lakh to Rs. 3 Lakhs",
-              "InterestRange": "InterestRange (%)",
-              "min_max": "Max",
-              "Value": "4.5"
-            }]
-        },
-
-        {
-          "Buckets": "Between Rs. 3 Lakhs to Rs. 5 Lakhs",
-          "InterestRange": "AmountOutstanding (Rs. Crore)",
-          "Value": "5079.81",
-          "child": [
-            {
-              "Buckets": "Between Rs. 3 Lakhs to Rs. 5 Lakhs",
-              "InterestRange": "InterestRange (%)",
-              "min_max": "Min",
-              "Value": "5"
-            },
-            {
-              "Buckets": "Between Rs. 3 Lakhs to Rs. 5 Lakhs",
-              "InterestRange": "InterestRange (%)",
-              "min_max": "Max",
-              "Value": "4.5"
-            }]
-        },
-
-        {
-          "Buckets": "Above 5 Lakh",
-          "InterestRange": "AmountOutstanding (Rs. Crore)",
-          "Value": "24588.36",
-          "child": [
-            {
-              "Buckets": "Above 5 Lakh",
-              "InterestRange": "InterestRange (%)",
-              "min_max": "Min",
-              "Value": "4"
-            },
-            {
-              "Buckets": "Above 5 Lakh",
-              "InterestRange": "InterestRange (%)",
-              "min_max": "Max",
-              "Value": "4.5"
-            }]
-        },
-
-        {
-          "Buckets": "Weighted Average Savings Deposit Rate for saving deposits above Rs. 1 lakh",
-          "InterestRange": "AmountOutstanding (Rs. Crore)",
-          "Value": "0",
-          "child": [
-            {
-              "Buckets": "Weighted Average Savings Deposit Rate for saving deposits above Rs. 1 lakh",
-              "InterestRange": "InterestRange (%)",
-              "min_max": "Min",
-              "Value": "4.05"
-            },
-            {
-              "Buckets": "Weighted Average Savings Deposit Rate for saving deposits above Rs. 1 lakh",
-              "InterestRange": "InterestRange (%)",
-              "min_max": "Max",
-              "Value": "0"
-            }]
-        }
-
-      ]
+      
+        "DomSavingsDeposits": [
+          {
+            "AmountOutstanding": "13186.04",
+            "Buckets": "Up to Rs. 1 Lakh",
+            "InterestRate": "4.00",
+            "Amo1ntOutstanding1": "13186.04",
+            "min": "4",
+            "max": "0",
+            "child": [
+              {
+                "AmountOutstanding": "10663.22",
+                "Buckets": "Up to Rs. 1 Lakh",
+                "InterestRate": "4.00",
+                "Amo1ntOutstanding1": "1066322",
+                "min": "4",
+                "max": "4.5"
+              }
+            ]
+          },
+          {
+            "AmountOutstanding": "14603.04",
+            "Buckets": "Between Rs. 1 lakh to Rs. 3 Lakhs",
+            "InterestRate": "4.00",
+            "Amo1ntOutstanding1": "123893",
+            "min": "4",
+            "max": "4.5",
+            "child": [
+              {
+                "AmountOutstanding": "11456.04",
+                "Buckets": "Between Rs. 1 lakh to Rs. 3 Lakhs",
+                "InterestRate": "5.00",
+                "Amo1ntOutstanding1": "123477",
+                "min": "4",
+                "max": "5.5"
+              },
+              {
+                "AmountOutstanding": "15673.04",
+                "Buckets": "Between Rs. 1 lakh to Rs. 3 Lakhs",
+                "InterestRate": "5.00",
+                "Amo1ntOutstanding1": "113456",
+                "min": "4.5",
+                "max": "4.5"
+              }
+            ]
+          },
+          {
+            "AmountOutstanding": "5079.81",
+            "Buckets": "Between Rs. 3 Lakhs to Rs. 5 Lakhs",
+            "InterestRate": "",
+            "Amo1ntOutstanding1": "5079.81",
+            "min": "5",
+            "max": "4.5",
+            "child": [
+              {
+                "AmountOutstanding": "4067.81",
+                "Buckets": "Between Rs. 3 Lakhs to Rs. 5 Lakhs",
+                "InterestRate": "",
+                "Amo1ntOutstanding1": "2387.81",
+                "min": "5",
+                "max": "4.5"
+              },
+              {
+                "AmountOutstanding": "3078.81",
+                "Buckets": "Between Rs. 3 Lakhs to Rs. 5 Lakhs",
+                "InterestRate": "5",
+                "Amo1ntOutstanding1": "1346.11",
+                "min": "5",
+                "max": "4.5"
+              }
+            ]
+          },
+          {
+            "AmountOutstanding": "24588.36",
+            "Buckets": "Above 5 Lakh",
+            "InterestRate": "4",
+            "Amo1ntOutstanding1": "24588.36",
+            "min": "4",
+            "max": "4.5",
+            "child": [
+              {
+                "AmountOutstanding": "45688.36",
+                "Buckets": "Above 5 Lakh",
+                "InterestRate": "4",
+                "Amo1ntOutstanding1": "34567.36",
+                "min": "4",
+                "max": "4.5"
+              },
+              {
+                "AmountOutstanding": "33588.36",
+                "Buckets": "Above 5 Lakh",
+                "InterestRate": "4",
+                "Amo1ntOutstanding1": "87588.36",
+                "min": "4",
+                "max": "4.5"
+              }
+            ]
+          },
+          {
+            "AmountOutstanding": "0",
+            "Buckets": "Weighted Average Savings Deposit Rate for saving deposits above Rs. 1 lakh",
+            "InterestRate": "0",
+            "Amo1ntOutstand,ing1": "0",
+            "min": "4.5",
+            "max": "0",
+            "child": [
+              {
+                "AmountOutstanding": "0",
+                "Buckets": "Weighted Average Savings Deposit Rate for saving deposits above Rs. 1 lakh",
+                "InterestRate": "0",
+                "Amo1ntOutstand,ing1": "0",
+                "min": "5.5",
+                "max": "0"
+              },
+              {
+                "AmountOutstanding": "0",
+                "Buckets": "Weighted Average Savings Deposit Rate for saving deposits above Rs. 1 lakh",
+                "InterestRate": "0",
+                "Amo1ntOutstand,ing1": "0",
+                "min": "4.0",
+                "max": "0"
+              }
+            ]
+          }
+        ]
+      
     };
+    
     this.domesticTermDepositsObj = {
-      "DomesticTermDeposit": [
-        {
-          "DomesticTermDeposits": "7 days to 14 days",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "82.95",
-          "RateofInterest": "4.28",
-          "child": [
-            {
-              "DomesticTermDeposits": "7 days to 14 days",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "76.43",
-              "RateofInterest": "3.61"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "15 days to 30 days",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "137.74",
-          "RateofInterest": "4.35",
-          "child": [
-            {
-              "DomesticTermDeposits": "15 days to 30 days",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "214.95",
-              "RateofInterest": "3.9"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "31 days to 45 days",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "90.57",
-          "RateofInterest": "4.27",
-          "child": [
-            {
-              "DomesticTermDeposits": "31 days to 45 days",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "93.56",
-              "RateofInterest": "4.19"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "46 days to 90 days",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "463.83",
-          "RateofInterest": "5.26",
-          "child": [
-            {
-              "DomesticTermDeposits": "46 days to 90 days",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "76.58",
-              "RateofInterest": "4.19"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "91 days to 180 days",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "2008.26",
-          "RateofInterest": "6.16",
-          "child": [
-            {
-              "DomesticTermDeposits": "91 days to 180 days",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "1041.75",
-              "RateofInterest": "4.4"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "181 days to 364 days",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "2569.92",
-          "RateofInterest": "6.13",
-          "child": [
-            {
-              "DomesticTermDeposits": "181 days to 364 days",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "218.54",
-              "RateofInterest": "4.3"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "1 year to less than 2 years",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "42833.7",
-          "RateofInterest": "6.71",
-          "child": [
-            {
-              "DomesticTermDeposits": "1 year to less than 2 years",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "1853.53",
-              "RateofInterest": "4.83"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "2 year to less than 3 years",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "6825.36",
-          "RateofInterest": "7",
-          "child": [
-            {
-              "DomesticTermDeposits": "2 year to less than 3 years",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "236.21",
-              "RateofInterest": "5.74"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "3 year to less than 5 years",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "8506.06",
-          "RateofInterest": "6.75",
-          "child": [
-            {
-              "DomesticTermDeposits": "3 year to less than 5 years",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "284.69",
-              "RateofInterest": "4.82"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "5 year to less than 8 years",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "3775.76",
-          "RateofInterest": "7.61",
-          "child": [
-            {
-              "DomesticTermDeposits": "5 year to less than 8 years",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "88.51",
-              "RateofInterest": "7.32"
-            }]
-        },
-
-        {
-          "DomesticTermDeposits": "8 year to 10 years",
-          "Type1": "Deposit less than Rs. 1 Crore",
-          "Type2": "Effective from 07.12.2012",
-          "AmountOutstanding": "1591.76",
-          "RateofInterest": "8.27",
-          "child": [
-            {
-              "DomesticTermDeposits": "8 year to 10 years",
-              "Type1": "Deposit above Rs. 1 Crore",
-              "AmountOutstanding": "45.22",
-              "RateofInterest": "7.51"
-            }]
-        }
-
-      ]
+      
+        "DomesticTermDeposit": [
+          {
+            "DomesticTermDeposits": "7 days to 14 days",
+            "lessAmountOutstanding": "82.95",
+            "lessRateofInteres": "4.28",
+            "aboveAmountOutstanding": "76.43",
+            "aboveRateofInterest": "3.61",
+            "child": [
+              {
+                "DomesticTermDeposits": "7 days to 14 days",
+                "lessAmountOutstanding": "55.95",
+                "lessRateofInterest": "3.18",
+                "aboveAmountOutstanding": "76.43",
+                "aboveRateofInterest": "2.61"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "15 days to 30 days",
+            "lessAmountOutstanding": "154.74",
+            "lessRateofInteres": "4.35",
+            "aboveAmountOutstanding": "214.95",
+            "aboveRateofInterest": "3.9",
+            "child": [
+              {
+                "DomesticTermDeposits": "15 days to 30 days",
+                "lessAmountOutstanding": "137.74",
+                "lessRateofInteres": "4.35",
+                "aboveAmountOutstanding": "214.95",
+                "aboveRateofInterest": "3.9"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "31 days to 45 days",
+            "lessAmountOutstanding": "90.57",
+            "lessRateofInteres": "4.27",
+            "aboveAmountOutstanding": "93.56",
+            "aboveRateofInterest": "4.19",
+            "child": [
+              {
+                "DomesticTermDeposits": "31 days to 45 days",
+                "lessAmountOutstanding": "20.57",
+                "lessRateofInteres": "4.57",
+                "aboveAmountOutstanding": "63.56",
+                "aboveRateofInterest": "7.19"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "46 days to 90 days",
+            "lessAmountOutstanding": "463.83",
+            "lessRateofInteres": "5.26",
+            "aboveAmountOutstanding": "76.58",
+            "aboveRateofInterest": "4.19",
+            "child": [
+              {
+                "DomesticTermDeposits": "46 days to 90 days",
+                "lessAmountOutstanding": "463.83",
+                "lessRateofInteres": "6.26",
+                "aboveAmountOutstanding": "56.58",
+                "aboveRateofInterest": "5.79"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "91 days to 180 days",
+            "lessAmountOutstanding": "2008.26",
+            "lessRateofInteres": "6.16",
+            "aboveAmountOutstanding": "1041.75",
+            "aboveRateofInterest": "4.4",
+            "child": [
+              {
+                "DomesticTermDeposits": "91 days to 180 days",
+                "lessAmountOutstanding": "4006.26",
+                "lessRateofInteres": "6.16",
+                "aboveAmountOutstanding": "989.75",
+                "aboveRateofInterest": "4.5"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "181 days to 364 days",
+            "lessAmountOutstanding": "2569.92",
+            "lessRateofInteres": "6.13",
+            "aboveAmountOutstanding": "2569.92",
+            "aboveRateofInterest": "6.13",
+            "child": [
+              {
+                "DomesticTermDeposits": "181 days to 364 days",
+                "lessAmountOutstanding": "3456.92",
+                "lessRateofInteres": "6.33",
+                "aboveAmountOutstanding": "1546.92",
+                "aboveRateofInterest": "7.13"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "1 year to less than 2 years",
+            "lessAmountOutstanding": "42833.7",
+            "lessRateofInteres": "6.71",
+            "aboveAmountOutstanding": "1853.53",
+            "aboveRateofInterest": "4.83",
+            "child": [
+              {
+                "DomesticTermDeposits": "1 year to less than 2 years",
+                "lessAmountOutstanding": "34567.7",
+                "lessRateofInteres": "6.71",
+                "aboveAmountOutstanding": "1767.53",
+                "aboveRateofInterest": "3.83"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "2 year to less than 3 years",
+            "lessAmountOutstanding": "6825.36",
+            "lessRateofInteres": "7",
+            "aboveAmountOutstanding": "236.21",
+            "aboveRateofInterest": "5.74",
+            "child": [
+              {
+                "DomesticTermDeposits": "2 year to less than 3 years",
+                "lessAmountOutstanding": "5678.36",
+                "lessRateofInteres": "7",
+                "aboveAmountOutstanding": "536.21",
+                "aboveRateofInterest": "6.74"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "3 year to less than 5 years",
+            "lessAmountOutstanding": "8506.06",
+            "lessRateofInteres": "6.75",
+            "aboveAmountOutstanding": "284.69",
+            "aboveRateofInterest": "4.82",
+            "child": [
+              {
+                "lessAmountOutstanding": "6706.06",
+                "lessRateofInteres": "7.75",
+                "aboveAmountOutstanding": "284.69",
+                "aboveRateofInterest": "4.12"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "5 year to less than 8 years",
+            "lessAmountOutstanding": "1234.76",
+            "lessRateofInteres": "7.61",
+            "aboveAmountOutstanding": "34.51",
+            "aboveRateofInterest": "7.32",
+            "child": [
+              {
+                "DomesticTermDeposits": "5 year to less than 8 years",
+                "lessAmountOutstanding": "3775.76",
+                "lessRateofInteres": "7.61",
+                "aboveAmountOutstanding": "23.51",
+                "aboveRateofInterest": "8.32"
+              }
+            ]
+          },
+          {
+            "DomesticTermDeposits": "8 year to 10 years",
+            "lessAmountOutstanding": "1591.76",
+            "lessRateofInteres": "8.27",
+            "aboveAmountOutstanding": "45.22",
+            "aboveRateofInterest": "7.51",
+            "child": [
+              {
+                "DomesticTermDeposits": "8 year to 10 years",
+                "lessAmountOutstanding": "2347.76",
+                "lessRateofInteres": "8.27",
+                "aboveAmountOutstanding": "67.22",
+                "aboveRateofInterest": "9.51"
+              }
+            ]
+          }
+        ]
+      
     };
     this.nriDepositsObj = {
       "NRIDeposits": [
@@ -1415,121 +795,121 @@ export class DashboardComponent implements OnInit {
       "Sheet1": [
           {
               "cust_id": "712176505",
-              "item": "1. Cash Credit",
+              "item": "Cash Credit",
               "amount": "4016.08",
               "Key1": "1."
           },
           {
               "cust_id": "9100567326",
-              "item": "1. Cash Credit",
+              "item": "Cash Credit",
               "amount": "9530.29",
               "Key1": "1."
           },
           {
               "cust_id": "9859516374",
-              "item": "1. Cash Credit",
+              "item": "Cash Credit",
               "amount": "8384.04",
               "Key1": "1."
           },
           {
               "cust_id": "1507389966",
-              "item": "1. Cash Credit",
+              "item": "Cash Credit",
               "amount": "4568.16",
               "Key1": "1."
           },
           {
               "cust_id": "2180569624",
-              "item": "1. Cash Credit",
+              "item": "Cash Credit",
               "amount": "3605.70",
               "Key1": "1."
           },
           {
               "cust_id": "1243022678",
-              "item": "2. Demand Loans",
+              "item": "Demand Loans",
               "amount": "2500.984",
               "Key1": "2."
           },
           {
               "cust_id": "5879481453",
-              "item": "2. Demand Loans",
+              "item": "Demand Loans",
               "amount": "2500.984",
               "Key1": "2."
           },
           {
               "cust_id": "6725082798",
-              "item": "2. Demand Loans",
+              "item": "Demand Loans",
               "amount": "2500.984",
               "Key1": "2."
           },
           {
               "cust_id": "7942631500",
-              "item": "2. Demand Loans",
+              "item": "Demand Loans",
               "amount": "2500.984",
               "Key1": "2."
           },
           {
               "cust_id": "3922169138",
-              "item": "2. Demand Loans",
+              "item": "Demand Loans",
               "amount": "2500.984",
               "Key1": "2."
           },
           {
               "cust_id": "5621755968",
-              "item": "3. Overdrafts",
+              "item": "Overdrafts",
               "amount": "186.15",
               "Key1": "3."
           },
           {
               "cust_id": "7970392191",
-              "item": "3. Overdrafts",
+              "item": "Overdrafts",
               "amount": "186.15",
               "Key1": "3."
           },
           {
               "cust_id": "4409228734",
-              "item": "3. Overdrafts",
+              "item": "Overdrafts",
               "amount": "186.15",
               "Key1": "3."
           },
           {
               "cust_id": "4007620641",
-              "item": "3. Overdrafts",
+              "item": "Overdrafts",
               "amount": "186.15",
               "Key1": "3."
           },
           {
               "cust_id": "9744941255",
-              "item": "3. Overdrafts",
+              "item": "Overdrafts",
               "amount": "186.15",
               "Key1": "3."
           },
           {
               "cust_id": "9419770705",
-              "item": "4. Inland Bills financed and discounted",
+              "item": "Inland Bills financed and discounted",
               "amount": "112.04",
               "Key1": "4."
           },
           {
               "cust_id": "672293809",
-              "item": "4. Inland Bills financed and discounted",
+              "item": "Inland Bills financed and discounted",
               "amount": "112.04",
               "Key1": "4."
           },
           {
               "cust_id": "3500399403",
-              "item": "4. Inland Bills financed and discounted",
+              "item": "Inland Bills financed and discounted",
               "amount": "112.04",
               "Key1": "4."
           },
           {
               "cust_id": "1981915386",
-              "item": "4. Inland Bills financed and discounted",
+              "item": "Inland Bills financed and discounted",
               "amount": "112.04",
               "Key1": "4."
           },
           {
               "cust_id": "7515919056",
-              "item": "4. Inland Bills financed and discounted",
+              "item": "Inland Bills financed and discounted",
               "amount": "112.04",
               "Key1": "4."
           },
@@ -1568,163 +948,10 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  this.jsonData= [
-      {
-          "cust_id": "712176505",
-          "item": "1. Cash Credit",
-          "amount": "4016.08",
-          "Key1": "1."
-      },
-      {
-          "cust_id": "9100567326",
-          "item": "1. Cash Credit",
-          "amount": "9530.29",
-          "Key1": "1."
-      },
-      {
-          "cust_id": "9859516374",
-          "item": "1. Cash Credit",
-          "amount": "8384.04",
-          "Key1": "1."
-      },
-      {
-          "cust_id": "1507389966",
-          "item": "1. Cash Credit",
-          "amount": "4568.16",
-          "Key1": "1."
-      },
-      {
-          "cust_id": "2180569624",
-          "item": "1. Cash Credit",
-          "amount": "3605.70",
-          "Key1": "1."
-      },
-      {
-          "cust_id": "1243022678",
-          "item": "2. Demand Loans",
-          "amount": "2500.984",
-          "Key1": "2."
-      },
-      {
-          "cust_id": "5879481453",
-          "item": "2. Demand Loans",
-          "amount": "2500.984",
-          "Key1": "2."
-      },
-      {
-          "cust_id": "6725082798",
-          "item": "2. Demand Loans",
-          "amount": "2500.984",
-          "Key1": "2."
-      },
-      {
-          "cust_id": "7942631500",
-          "item": "2. Demand Loans",
-          "amount": "2500.984",
-          "Key1": "2."
-      },
-      {
-          "cust_id": "3922169138",
-          "item": "2. Demand Loans",
-          "amount": "2500.984",
-          "Key1": "2."
-      },
-      {
-          "cust_id": "5621755968",
-          "item": "3. Overdrafts",
-          "amount": "186.15",
-          "Key1": "3."
-      },
-      {
-          "cust_id": "7970392191",
-          "item": "3. Overdrafts",
-          "amount": "186.15",
-          "Key1": "3."
-      },
-      {
-          "cust_id": "4409228734",
-          "item": "3. Overdrafts",
-          "amount": "186.15",
-          "Key1": "3."
-      },
-      {
-          "cust_id": "4007620641",
-          "item": "3. Overdrafts",
-          "amount": "186.15",
-          "Key1": "3."
-      },
-      {
-          "cust_id": "9744941255",
-          "item": "3. Overdrafts",
-          "amount": "186.15",
-          "Key1": "3."
-      },
-      {
-          "cust_id": "9419770705",
-          "item": "4. Inland Bills financed and discounted",
-          "amount": "112.04",
-          "Key1": "4."
-      },
-      {
-          "cust_id": "672293809",
-          "item": "4. Inland Bills financed and discounted",
-          "amount": "112.04",
-          "Key1": "4."
-      },
-      {
-          "cust_id": "3500399403",
-          "item": "4. Inland Bills financed and discounted",
-          "amount": "112.04",
-          "Key1": "4."
-      },
-      {
-          "cust_id": "1981915386",
-          "item": "4. Inland Bills financed and discounted",
-          "amount": "112.04",
-          "Key1": "4."
-      },
-      {
-          "cust_id": "7515919056",
-          "item": "4. Inland Bills financed and discounted",
-          "amount": "112.04",
-          "Key1": "4."
-      },
-      {
-          "cust_id": "7612300392",
-          "item": "5.1 1 day to 180 days",
-          "amount": "3.34",
-          "Key1": "5.1"
-      },
-      {
-          "cust_id": "6733349503",
-          "item": "5.1 1 day to 180 days",
-          "amount": "3.34",
-          "Key1": "5.1"
-      },
-      {
-          "cust_id": "6607661959",
-          "item": "5.1 1 day to 180 days",
-          "amount": "3.34",
-          "Key1": "5.1"
-      },
-      {
-          "cust_id": "8945531217",
-          "item": "5.1 1 day to 180 days",
-          "amount": "3.34",
-          "Key1": "5.1"
-      },
-      {
-          "cust_id": "37519954",
-          "item": "5.1 1 day to 180 days",
-          "amount": "3.34",
-          "Key1": "5.1"
-      },
-   
-  ]
   
   }
 
-  
+
   closePopup() {
     this.popup = false;
     this.interestRatedAllLoansEnable = true;
@@ -1898,7 +1125,28 @@ this.enableTable11 = true;
   }
 
 
+  getItemsForDetails(data){
+this.cDetails=[];
+for(let i=0;i<=this.childDetails.Sheet1.length;i++){
+  if(this.childDetails.Sheet1[i].item === data.item){
 
+this.cDetails.push(this.childDetails.Sheet1[i]);
+console.log(this.cDetails)
+this.enableTable9 = true;
+this.enableTable10=true;
+this.enableTable4 = false;
+this.enableTable3 = false;
+this.enableTable2 = false;
+this.enableTable1 = false;
+this.enableTable11 = true;
+this.enableTable6 = false;
+this.enableTable5 = false;
+this.enableTable11 = true;
+  }
+
+}
+
+  }
 
 
 
@@ -1922,5 +1170,9 @@ this.enableTable11 = true;
       window.URL.revokeObjectURL(url);
     }
   }
+
+
+
+ 
 
 }

@@ -118,7 +118,6 @@
   .box{
     width: 100%;
           height: 555px;
-          opacity: 0.3;
           background-image: linear-gradient(
             to right,
             rgb(244 244 244),
@@ -170,7 +169,9 @@
     border-color: white;
   }
   
-  
+  .col-lg-10{
+    padding-left: 8px !important;
+  }
   .form-control-serch {
     height: 32px;
     padding: 0px 12px;
@@ -185,6 +186,9 @@
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   }
   
+  /* .table>thead>tr>th {
+    //border-bottom: 1px solid black !important;
+} */
   
   .search-btn-icon{
     background-color: #fff;
