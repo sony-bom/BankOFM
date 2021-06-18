@@ -52,35 +52,48 @@
                   >
                 </h4>
               </div>
-              <div id="collapseTwo" class="panel-collapse collapse">
+              <div id="collapseTwo" class="panel-collapse collapse" href="#collapseTab1">
                 <div class="panel-body">
-                  <table class="table" style="margin-top: 0px">
+                  <table class="table" style=" margin-top: 0px;">
                     <tr>
-                      <td
-                        class="heading"
-                        style="cursor: pointer"
-                        [ngClass]="{ activetab: isActive(1) }"
-                        (click)="tabsBtn()"
-                      >
-                        <a (click)="tabsBtn()"
-                          >RBI207_Special Fortnightly Return-VI-AB</a
-                        >
+                      <td class="heading" style="cursor: pointer;" [ngClass]="{activetab: isActive(1)}"
+                         (click)="tabsBtn()">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTab1"
+                          (click)="tabsBtn()">
+                       
+                          RBI207_Special Fortnightly Return-VI-AB &nbsp; &nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
                       </td>
                     </tr>
-
+                  </table>
+                </div>
+              </div>
+              <div id="collapseTab1" class="panel-collapse collapse" *ngIf="closeTabs">
+                <div class="panel-body">
+                  <table class="table" style=" margin-top: 0px;">
                     <tr>
-                      <td class="heading" style="cursor: pointer">
-                        <a>Tab 2</a>
+                      <td class="heading" style="cursor: pointer;" [ngClass]="{activetab: isActive(1)}"
+                         (click)="interestRatedAllLoans()">
+                        <a (click)="tabsBtn()" style="margin-left: 15px;">Interest Rates On All Loans</a>
                       </td>
                     </tr>
                     <tr>
-                      <td class="heading" style="cursor: pointer">
-                        <a>Tab 3</a>
+                      <td class="heading" style="cursor: pointer;" [ngClass]="{activetab: isActive(1)}">
+                        <a (click)="domSavingsDeposits()" style="margin-left: 15px;">I.R On DOM savings Deposits</a>
                       </td>
                     </tr>
                     <tr>
-                      <td class="heading" style="cursor: pointer">
-                        <a>Tab 4</a>
+                      <td class="heading" style="cursor: pointer;" [ngClass]="{activetab: isActive(1)}">
+                        <a (click)="domesticTermDeposits()" style="margin-left: 15px;"> I.R On Domestic Term Deposits</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="heading" style="cursor: pointer;" [ngClass]="{activetab: isActive(1)}">
+                        <a (click)="NRIDeposits()" style="margin-left: 15px;">NRI Deposits</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="heading" style="cursor: pointer;" [ngClass]="{activetab: isActive(1)}">
+                        <a (click)="ForeignCurrencyExpCreditEnable()" style="margin-left: 15px;">Foreign Currency Exp Credit</a>
                       </td>
                     </tr>
                   </table>
@@ -239,7 +252,7 @@
       *ngIf="tabsEnable"
       style="margin: 46px 0px 0px 248px"
     >
-      <div class="col-3">
+      <!-- <div class="col-3">
         <button
           class="btn btn-secondary"
           (click)="interestRatedAllLoans()"
@@ -248,8 +261,8 @@
         >
           Interest Rates On All Loans
         </button>
-      </div>
-      <div class="col-3">
+      </div> -->
+      <!-- <div class="col-3">
         <button
           class="btn btn-secondary"
           (click)="domSavingsDeposits()"
@@ -259,8 +272,8 @@
         >
           I.R On DOM savings Deposits
         </button>
-      </div>
-      <div class="col-3">
+      </div> -->
+      <!-- <div class="col-3">
         <button
           class="btn btn-secondary"
           style="margin-right: -69px"
@@ -272,8 +285,8 @@
         >
           I.R On Domestic Term Deposits
         </button>
-      </div>
-      <div class="col-2">
+      </div> -->
+      <!-- <div class="col-2">
         <button
           class="btn btn-secondary"
           (click)="NRIDeposits()"
@@ -284,8 +297,8 @@
         >
           NRI Deposits
         </button>
-      </div>
-      <div class="col-2">
+      </div> -->
+      <!-- <div class="col-2">
         <button
           class="btn btn-secondary"
           (click)="ForeignCurrencyExpCreditEnable()"
@@ -295,7 +308,7 @@
         >
           Foreign Currency Exp Credit
         </button>
-      </div>
+      </div> -->
 
       <div *ngIf="interestRatedAllLoansEnable">
         <table
@@ -339,8 +352,8 @@
             <tr *ngFor="let aData of finalObj.Sheet1; index as i">
               <td
                 class="link"
-                [ngClass]="{colorGreen: aData.item === 'I. Type of Credit(1+2+3+4+5)', colorRed: aData.item != 'I. Type of Credit(1+2+3+4+5)'}">            
-                <a (click)="getItems(aData)" (click)="popup = true"
+                [ngClass]="{colorRed: aData.item != 'I. Type of Credit(1+2+3+4+5)' , colorGreen: aData.item === 'I. Type of Credit(1+2+3+4+5)'}">            
+                <a (click)="getItems(aData)"
                   >{{ aData.item }}
                 </a>
               </td>

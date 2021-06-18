@@ -60,6 +60,7 @@ export class DashboardComponent implements OnInit {
   cDetails: any[];
   message: any;
   userName: string;
+  closeTabs: boolean;
   constructor(
     private router: Router,
     private constants: AppConstants,
@@ -1010,6 +1011,12 @@ this.enableTable11 = true;
   }
   tabsBtn() {
     this.tabsEnable = true;
+    this.closeTabs=true
+    this.interestRatedAllLoansEnable = false;
+    this.domSavingsDepositsEnable = false;
+    this.domesticTermDepositsEnable = false;
+    this.NRIDepositsEnable = false;
+    this.foreignCurrencyExpCreditEnable = false;
   }
   interestRatedAllLoans() {
     this.first=true;
@@ -1090,6 +1097,7 @@ this.enableTable11 = true;
     this.foreignCurrencyExpCreditEnable = false;
     this.tabsEnable = false;
     this.enableCollapse=true;
+    this.closeTabs=false
   }
   closeModal(){
     this.interestRatedAllLoansEnable = false;
