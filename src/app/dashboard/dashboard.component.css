@@ -316,6 +316,11 @@ a[_ngcontent-c2] {
 }
 .heading a:hover {
     color: #83aed4;
+   
+    }
+    .headingsize a{
+      font-size: 12px;
+      margin-left: 15px;
     }
     .btn-secondary {
       color: #fff;
