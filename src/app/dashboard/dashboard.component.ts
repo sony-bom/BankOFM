@@ -61,6 +61,7 @@ export class DashboardComponent implements OnInit {
   message: any;
   userName: string;
   closeTabs: boolean;
+  imageEnable: boolean;
   constructor(
     private router: Router,
     private constants: AppConstants,
@@ -1017,6 +1018,7 @@ this.enableTable11 = true;
     this.domesticTermDepositsEnable = false;
     this.NRIDepositsEnable = false;
     this.foreignCurrencyExpCreditEnable = false;
+     this.imageEnable =false; 
   }
   interestRatedAllLoans() {
     this.first=true;
@@ -1097,7 +1099,8 @@ this.enableTable11 = true;
     this.foreignCurrencyExpCreditEnable = false;
     this.tabsEnable = false;
     this.enableCollapse=true;
-    this.closeTabs=false
+    this.closeTabs=false;
+     this.imageEnable =true; 
   }
   closeModal(){
     this.interestRatedAllLoansEnable = false;

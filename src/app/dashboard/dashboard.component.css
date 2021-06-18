@@ -131,6 +131,9 @@
           );
 
 }
+.image{
+  width: 1000px;
+}
 
   .side-nav>li>a {
     width: 225px;
@@ -319,8 +322,9 @@ a[_ngcontent-c2] {
    
     }
     .headingsize a{
-      font-size: 12px;
+      font-size: 13px;
       margin-left: 15px;
+      font-weight: bold;
     }
     .btn-secondary {
       color: #fff;

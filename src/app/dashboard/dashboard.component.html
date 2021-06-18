@@ -104,68 +104,74 @@
         </ul>
       </div>
     </div>
-
-    <div class="col-sm-10" *ngIf="!tabsEnable">
-      <div class="box">
-        <div class="col-sm-10"></div>
-        <div class="col-sm-2">
-          <!-- Example single danger button -->
-          <div class="btn-group" style="margin: 37px 0px 0px 0px">
-            <button
-              type="button"
-              class="btn btn-primary dropdown-toggle"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
+    <div class="col-lg-10" *ngIf="imageEnable && !tabsEnable">
+      <div class="col-sm-2" style="float: right;" >
+        <!-- Example single danger button -->
+        <div class="btn-group" style="margin: 37px 0px 0px 0px">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Download
+          </button>
+          <div class="dropdown-menu">
+            <a
+              class="dropdown-item"
+              id="dropdownMenuButton"
+              download
+              href="./assets/RBI207_Special Fortnightly Return-VI-AB.pdf"
+              >PDF</a
             >
-              Download
-            </button>
-            <div class="dropdown-menu">
-              <a
-                class="dropdown-item"
-                id="dropdownMenuButton"
-                download
-                href="./assets/RBI207_Special Fortnightly Return-VI-AB.pdf"
-                >PDF</a
-              >
-              <a
-                class="dropdown-item"
-                id="dropdownMenuButton"
-                download
-                href="./assets/BOM_Sample_Data.csv"
-                >CSV</a
-              >
-              <a
-                class="dropdown-item"
-                id="dropdownMenuButton"
-                download
-                href="./assets/BOM_Sample_Data.xlsx"
-                >XLSX</a
-              >
-              <a
-                class="dropdown-item"
-                id="dropdownMenuButton"
-                download
-                href="./assets/RBI207_Special Fortnightly Return-VI-AB.docx"
-                >DOC</a
-              >
-              <a
-                class="dropdown-item"
-                id="dropdownMenuButton"
-                download
-                href="./assets/RBI207_Special Fortnightly Return-VI-AB.rtf"
-                >RTF</a
-              >
-            </div>
+            <a
+              class="dropdown-item"
+              id="dropdownMenuButton"
+              download
+              href="./assets/BOM_Sample_Data.csv"
+              >CSV</a
+            >
+            <a
+              class="dropdown-item"
+              id="dropdownMenuButton"
+              download
+              href="./assets/BOM_Sample_Data.xlsx"
+              >XLSX</a
+            >
+            <a
+              class="dropdown-item"
+              id="dropdownMenuButton"
+              download
+              href="./assets/RBI207_Special Fortnightly Return-VI-AB.docx"
+              >DOC</a
+            >
+            <a
+              class="dropdown-item"
+              id="dropdownMenuButton"
+              download
+              href="./assets/RBI207_Special Fortnightly Return-VI-AB.rtf"
+              >RTF</a
+            >
           </div>
-          <!-- <a download href="assets/RBI207_Special Fortnightly Return-VI-AB.pdf"> <button class="btn btn-secondary"
-    style="background: #83aed4; color: white;"  type="button"
-    id="dropdownMenuButton">
-    Download
-  </button> </a> -->
         </div>
+        <!-- <a download href="assets/RBI207_Special Fortnightly Return-VI-AB.pdf"> <button class="btn btn-secondary"
+  style="background: #83aed4; color: white;"  type="button"
+  id="dropdownMenuButton">
+  Download
+</button> </a> -->
       </div>
-    </div>
+        <div style="margin-left: 10px;">
+          <img  class="image" src="/assets/0001.jpg">
+          <img  class="image" src="/assets/0002.jpg" >
+          <img class="image" src="/assets/0003.jpg" >
+      <!--     <img class="image" src="/assets/0004.jpg" > -->
+          <img class="image" src="/assets/0005.jpg" >
+          <img class="image" src="/assets/0006.jpg" >
+        </div>
+      </div> 
+
+
 
     <div class="row" style="display: list-item" *ngIf="tabsEnable">
       <div class="col-sm-8"></div>
@@ -246,6 +252,8 @@
         </button>
       </div>
     </div>
+
+
 
     <div
       class="col-sm-10"
